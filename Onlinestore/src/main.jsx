@@ -1,33 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 import { Provider } from "react-redux";
-import store from "./redux/store"; 
-import Dashboard from "./pages/Dashboard";
-import ItemView from "./pages/ItemView";
-import Bag from "./pages/Bag";
-import Checkout from "./pages/Checkout";
-import AddPayment from "./pages/AddPayment";
-import AddAddress from "./pages/AddAddress";
-import SuccessPage from "./pages/SuccessPage";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import store from "./redux/store";
 
-function App() {
-  return (
-    <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path ="/" element={<Dashboard/>}/>
-          <Route path="/item/:id" element={<ItemView />} />
-          <Route path="/bag" element={<Bag />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/add-payment" element={<AddPayment />} />
-          <Route path="/add-address" element={<AddAddress />} />
-          <Route path="/success" element={<SuccessPage />} /> 
-        </Routes>
-      </Router>
-    </Provider>
-  );
-}
-
-export default App;
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
